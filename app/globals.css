@@ -3,31 +3,117 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-primary: 250, 250, 251;
+  --background-secondary: 255, 255, 255;
+  --foreground-primary: 33, 33, 33;
+  --foreground-secondary: 148, 163, 184;
+  --border-shadow: 230, 235, 241, 0.75;
+  --blue: 0, 123, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-primary: 32, 32, 32;
+    --foreground-primary: 248, 248, 255;
   }
-}
+} */
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(var(--background-primary));
+  color: rgb(var(--foreground-primary));
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.bg-dark {
+  background: rgb(var(--foreground-primary));
+  color: rgb(var(--background-primary));
+}
+.text-dark {
+  color: rgb(var(--background-primary));
+}
+
+.text-primary {
+  color: rgb(var(--foreground-primary));
+}
+
+.text-secondary {
+  color: rgb(var(--foreground-secondary));
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+h3 {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+}
+
+h2 {
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
+}
+
+h1 {
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+}
+
+button {
+  background: rgb(var(--foreground-primary));
+  color: rgb(var(--background-primary));
+  padding: 12px 20px;
+  border-radius: 40px;
+}
+button:disabled {
+  background: rgb(var(--foreground-secondary));
+}
+.switch {
+  transition: all ease-in-out 3s;
+}
+.switch button {
+  background: transparent;
+  color: rgb(var(--foreground-primary));
+}
+.switch .selected {
+  background: white;
+  border: 1px solid rgba(var(--border-shadow));
+  color: rgb(var(--foreground-primary));
+}
+
+.card {
+  background: rgb(var(--background-secondary));
+  padding: 20px;
+  border: 1px solid rgba(var(--border-shadow));
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(var(--border-shadow)),
+    0 2px 4px -2px rgba(var(--border-shadow));
+}
+
+.card-selected {
+  border: 1px solid rgba(var(--blue));
+}
+
+.align-center {
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+}
+
+input {
+  background: transparent;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+}
+input:focus {
+  outline: none;
+  border: none;
+}
+
+.box {
+  background: rgb(var(--background-secondary));
+  border: 1px solid rgba(var(--border-shadow));
+  box-shadow: 0 4px 6px -1px rgba(var(--border-shadow)),
+    0 2px 4px -2px rgba(var(--border-shadow));
 }
